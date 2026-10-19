@@ -25,7 +25,12 @@ async function sign_in(req: Request, res: Response) {
 }
 
 async function sign_out(req: Request, res: Response) {
-  res.clearCookie(config.TOKEN_NAME);
+  const isProduction = process.env.NODE_ENV === "production";
+  res.clearCookie(config.TOKEN_NAME, {
+    httpOnly: true,
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
+  });
   sendResponse(res, HttpStatus.SUCCESS, {
     success: true,
     message: "user sign out successfully",

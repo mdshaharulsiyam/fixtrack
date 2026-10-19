@@ -6,7 +6,7 @@ import { TbCopyCheckFilled } from 'react-icons/tb'
 import { useAddJobMutation, useUpdateJobMutation } from '../../Redux/Apis/jobApi'
 import { CustomerFields } from '../../Utils/FormFields/Job'
 import { JOB_CATEGORIES } from '../../Utils/jobOptions'
-import AiSuggestion from './AiSuggestion'
+// import AiSuggestion from './AiSuggestion'
 import Loading from '../Shared/Loading'
 
 const categoryOptions = JOB_CATEGORIES.map((item) => ({ value: item, label: item }))
@@ -19,7 +19,7 @@ const positiveCost = {
 
 const JobForm = ({ action, data, close_modal }) => {
     const [form] = Form.useForm()
-    const [suggestion, setSuggestion] = useState(null)
+    // const [suggestion, setSuggestion] = useState(null)
     const [addJob, { isLoading: addLoading }] = useAddJobMutation()
     const [updateJob, { isLoading: updateLoading }] = useUpdateJobMutation()
 
@@ -76,7 +76,7 @@ const JobForm = ({ action, data, close_modal }) => {
                 >
                     <Input.TextArea rows={3} maxLength={1000} placeholder='phone fell in water, screen flickers' />
                 </Form.Item>
-                <AiSuggestion form={form} suggestion={suggestion} setSuggestion={setSuggestion} />
+                {/* <AiSuggestion form={form} suggestion={suggestion} setSuggestion={setSuggestion} /> */}
                 <div className='grid md:grid-cols-2 gap-x-4'>
                     <Form.Item
                         name='category'

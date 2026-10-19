@@ -19,9 +19,14 @@ export const logger = winston.createLogger({
         winston.format.simple(),
       ),
     }),
-    new winston.transports.File({
-      filename: path.join(__dirname, "logs", "error.log"),
-      level: "error",
-    }),
+    // serverless filesystems are read-only, so only log to a file locally
+    ...(process.env.VERCEL
+      ? []
+      : [
+          new winston.transports.File({
+            filename: path.join(__dirname, "logs", "error.log"),
+            level: "error",
+          }),
+        ]),
   ],
 });

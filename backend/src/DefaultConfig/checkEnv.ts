@@ -1,7 +1,7 @@
 import { logger } from "../utils/logger";
 
 const REQUIRED = ["DATABASE_URL", "ACCESS_TOKEN_SECRET"];
-const RECOMMENDED = ["ALLOWED_ORIGIN", "ANTHROPIC_API_KEY"];
+const RECOMMENDED = ["ALLOWED_ORIGIN"];
 
 const isMissing = (name: string) => !(process.env[name] || "").trim();
 
