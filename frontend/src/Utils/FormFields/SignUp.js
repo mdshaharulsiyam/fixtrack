@@ -1,0 +1,36 @@
+export const SignUpFields = [
+    {
+        name: 'name',
+        label: 'Shop Owner Name',
+        placeholder: 'Rahim Uddin',
+        required: true,
+        message: 'please input your name',
+        type: 'text',
+    },
+    {
+        name: 'email',
+        label: 'Email',
+        placeholder: 'owner@yourshop.com',
+        required: true,
+        message: 'please input your email',
+        type: 'email',
+    },
+    {
+        name: 'password',
+        label: 'Password',
+        placeholder: 'at least 8 characters',
+        required: true,
+        message: 'please input a password of at least 8 characters',
+        type: 'password',
+        min: 8,
+    },
+    {
+        name: 'confirm_password',
+        label: 'Confirm Password',
+        placeholder: 'type the password again',
+        required: true,
+        message: 'please confirm your password',
+        type: 'password',
+        match: 'password',
+    },
+]
