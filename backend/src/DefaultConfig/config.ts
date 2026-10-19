@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const DEV_ORIGINS = "http://localhost:3000,http://localhost:5173";
+const FIXED_ORIGINS = ["https://fixtrack-wuie.vercel.app"];
 
 const config = Object.freeze({
   PORT: process.env.PORT || 5000,
@@ -12,7 +13,8 @@ const config = Object.freeze({
   )
     .split(",")
     .map((origin) => origin.trim())
-    .filter(Boolean),
+    .filter(Boolean)
+    .concat(FIXED_ORIGINS),
   DATABASE_URL: process.env.DATABASE_URL,
   DB_NAME: process.env.DB_NAME,
   ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
